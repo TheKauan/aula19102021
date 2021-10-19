@@ -1,0 +1,21 @@
+SELECT
+    curso."idCurso",
+    curso."nome_curso",
+    curso."tipo_curso",
+    (SELECT count(*)
+       FROM "tb_aluno" 
+      WHERE curso."idCurso" = "idCurso") as "qtdAlunos"
+FROM "tb_curso" as curso
+
+
+SELECT
+    "tb_aluno"."idAluno",
+    "tb_aluno"."ra",
+    "tb_aluno"."nome",
+    "tb_curso"."idCurso",
+    "tb_curso"."nome_curso",
+    "tb_curso"."tipo_curso"
+FROM "tb_aluno"
+INNER JOIN "tb_curso" ON "tb_aluno"."idCurso" = "tb_curso"."idCurso"
+--WHERE "tb_curso"."idCurso" = 3
+ORDER BY "nome"
